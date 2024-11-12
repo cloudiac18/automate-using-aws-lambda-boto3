@@ -1,0 +1,398 @@
+{
+  "arn": "arn:aws:inspector:us-west-2:703781204849:target/0-uWOXnxFk/template/0-hKt4me4K/run/0-ZsEXQun4/finding/0-xsynASK9",
+  "assetAttributes": {
+    "agentId": "i-0f107f7275681a7e8",
+    "amiId": "ami-08e4eaf54ff5ee95e",
+    "hostname": "ec2-18-236-227-245.us-west-2.compute.amazonaws.com",
+    "ipv4Addresses": [],
+    "networkInterfaces": [
+      {
+        "ipv6Addresses": [],
+        "networkInterfaceId": "eni-060a29be0059383b7",
+        "privateDnsName": "ip-172-31-15-32.us-west-2.compute.internal",
+        "privateIpAddress": "172.31.15.32",
+        "privateIpAddresses": [
+          {
+            "privateDnsName": "ip-172-31-15-32.us-west-2.compute.internal",
+            "privateIpAddress": "172.31.15.32"
+          }
+        ],
+        "publicDnsName": "ec2-18-236-227-245.us-west-2.compute.amazonaws.com",
+        "publicIp": "18.236.227.245",
+        "securityGroups": [
+          {
+            "groupId": "sg-07ac55e09bc761fcb",
+            "groupName": "launch-wizard-14"
+          }
+        ],
+        "subnetId": "subnet-6e8db634",
+        "vpcId": "vpc-a079a6d8"
+      }
+    ],
+    "schemaVersion": 1,
+    "tags": [
+      {
+        "key": "Name",
+        "value": "inspector"
+      }
+    ]
+  },
+  "assetType": "ec2-instance",
+  "attributes": [
+    {
+      "key": "CIS_BENCHMARK_PROFILE",
+      "value": "Level 1, Level 2"
+    },
+    {
+      "key": "BENCHMARK_RULE_ID",
+      "value": "5.1.5 Ensure permissions on etccron.weekly are configured"
+    },
+    {
+      "key": "CIS_WEIGHT",
+      "value": "SCORED"
+    },
+    {
+      "key": "BENCHMARK_ID",
+      "value": "1.0.0 CIS Amazon Linux 2 Benchmark"
+    },
+    {
+      "key": "INSTANCE_ID",
+      "value": "i-0f107f7275681a7e8"
+    }
+  ],
+  "confidence": 10,
+  "createdAt": 1668755318.918,
+  "description": {
+    "message": "Description\n\n\t\t\t\t\t\nThe /etc/cron.weekly directory contains system cron jobs that need to run on a weekly basis. The files in this directory cannot be manipulated by the crontab command, but are instead edited by system administrators using a text editor. The commands below restrict read/write and search access to user and group root, preventing regular users from accessing this directory.\n\n\t\t\t\t\n\nRationale\n\n\t\t\t\t\t\nGranting write access to this directory for non-privileged users could provide them the means for gaining unauthorized elevated privileges. Granting read access to this directory could give an unprivileged user insight in how to gain elevated privileges or circumvent auditing controls.\n\n\t\t\t\t\n\n"
+  },
+  "id": "5.1.5 Ensure permissions on /etc/cron.weekly are configured",
+  "indicatorOfCompromise": false,
+  "numericSeverity": 9,
+  "recommendation": {
+    "message": "\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tRun the following commands to set ownership and permissions on /etc/cron.weekly :\n\t\t\t\t\t\t\t# chown root:root /etc/cron.weekly# chmod og-rwx /etc/cron.weekly\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t \n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t"
+  },
+  "schemaVersion": 1,
+  "service": "Inspector",
+  "serviceAttributes": {
+    "assessmentRunArn": "arn:aws:inspector:us-west-2:703781204849:target/0-uWOXnxFk/template/0-hKt4me4K/run/0-ZsEXQun4",
+    "rulesPackageArn": "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",
+    "schemaVersion": 1
+  },
+  "severity": "High",
+  "title": {
+    "message": "\n    Instance i-0f107f7275681a7e8 is not compliant with rule 5.1.5 Ensure permissions on etccron.weekly are configured, 1.0.0 CIS Amazon Linux 2 Benchmark.            \n\n    Applicable profiles: Level 1, Level 2.\n            "
+  },
+  "updatedAt": 1668755318.918,
+  "userAttributes": [],
+  "attributesAsHash": {},
+  "CIS_WEIGHT": "SCORED",
+  "rulesPackage": {
+    "arn": "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",
+    "description": "The CIS Security Benchmarks program provides well-defined, un-biased and consensus-based industry best practices to help organizations assess and improve their security.\n\nThe rules in this package help establish a secure configuration posture for the following operating systems:\n\n  -   Amazon Linux 2 (CIS Benchmark for Amazon Linux 2 Benchmark v1.0.0 Level 1)\n  -   Amazon Linux 2 (CIS Benchmark for Amazon Linux 2 Benchmark v1.0.0 Level 2)\n  -   Ubuntu Linux 18.04 LTS (CIS Benchmark for Ubuntu Linux 18.04 LTS Benchmark v1.0.0 Level 1 Server)\n  -   Ubuntu Linux 18.04 LTS (CIS Benchmark for Ubuntu Linux 18.04 LTS Benchmark v1.0.0 Level 2 Server)\n  -   Ubuntu Linux 18.04 LTS (CIS Benchmark for Ubuntu Linux 18.04 LTS Benchmark v1.0.0 Level 1 Workstation)\n  -   Ubuntu Linux 18.04 LTS (CIS Benchmark for Ubuntu Linux 18.04 LTS Benchmark v1.0.0 Level 2 Workstation)\n  -   Amazon Linux version 2015.03 (CIS benchmark v1.1.0)\n  -   Windows Server 2008 R2 (CIS Benchmark for Microsoft Windows 2008 R2, v3.0.0, Level 1 Domain Controller)\n  -   Windows Server 2008 R2 (CIS Benchmark for Microsoft Windows 2008 R2, v3.0.0, Level 1 Member Server Profile)\n  -   Windows Server 2012 R2 (CIS Benchmark for Microsoft Windows Server 2012 R2, v2.2.0, Level 1 Member Server Profile)\n  -   Windows Server 2012 R2 (CIS Benchmark for Microsoft Windows Server 2012 R2, v2.2.0, Level 1 Domain Controller Profile)\n  -   Windows Server 2012 (CIS Benchmark for Microsoft Windows Server 2012 non-R2, v2.0.0, Level 1 Member Server Profile)\n  -   Windows Server 2012 (CIS Benchmark for Microsoft Windows Server 2012 non-R2, v2.0.0, Level 1 Domain Controller Profile)\n  -   Windows Server 2016 (CIS Benchmark for Microsoft Windows Server 2016 RTM (Release 1607), v1.1.0, Level 1 Member Server Profile)\n  -   Windows Server 2016 (CIS Benchmark for Microsoft Windows Server 2016 RTM (Release 1607), v1.1.0, Level 2 Member Server Profile)\n  -   Windows Server 2016 (CIS Benchmark for Microsoft Windows Server 2016 RTM (Release 1607), v1.1.0, Level 1 Domain Controller Profile)\n  -   Windows Server 2016 (CIS Benchmark for Microsoft Windows Server 2016 RTM (Release 1607), v1.1.0, Level 2 Domain Controller Profile)\n  -   Windows Server 2016 (CIS Benchmark for Microsoft Windows Server 2016 RTM (Release 1607), v1.1.0, Next Generation Windows Security Profile)\n  -   Amazon Linux (CIS Benchmark for Amazon Linux Benchmark v2.1.0 Level 1)\n  -   Amazon Linux (CIS Benchmark for Amazon Linux Benchmark v2.1.0 Level 2)\n  -   CentOS Linux 7 (CIS Benchmark for CentOS Linux 7 Benchmark v2.2.0 Level 1 Server)\n  -   CentOS Linux 7 (CIS Benchmark for CentOS Linux 7 Benchmark v2.2.0 Level 2 Server)\n  -   CentOS Linux 7 (CIS Benchmark for CentOS Linux 7 Benchmark v2.2.0 Level 1 Workstation)\n  -   CentOS Linux 7 (CIS Benchmark for CentOS Linux 7 Benchmark v2.2.0 Level 2 Workstation)\n  -   Red Hat Enterprise Linux 7 (CIS Benchmark for Red Hat Enterprise Linux 7 Benchmark v2.1.1 Level 1 Server)\n  -   Red Hat Enterprise Linux 7 (CIS Benchmark for Red Hat Enterprise Linux 7 Benchmark v2.1.1 Level 2 Server)\n  -   Red Hat Enterprise Linux 7 (CIS Benchmark for Red Hat Enterprise Linux 7 Benchmark v2.1.1 Level 1 Workstation)\n  -   Red Hat Enterprise Linux 7 (CIS Benchmark for Red Hat Enterprise Linux 7 Benchmark v2.1.1 Level 2 Workstation)\n  -   Ubuntu Linux 16.04 LTS (CIS Benchmark for Ubuntu Linux 16.04 LTS Benchmark v1.1.0 Level 1 Server)\n  -   Ubuntu Linux 16.04 LTS (CIS Benchmark for Ubuntu Linux 16.04 LTS Benchmark v1.1.0 Level 2 Server)\n  -   Ubuntu Linux 16.04 LTS (CIS Benchmark for Ubuntu Linux 16.04 LTS Benchmark v1.1.0 Level 1 Workstation)\n  -   Ubuntu Linux 16.04 LTS (CIS Benchmark for Ubuntu Linux 16.04 LTS Benchmark v1.1.0 Level 2 Workstation)\n  -   CentOS Linux 6 (CIS Benchmark for CentOS Linux 6 Benchmark v2.0.2, Level 1 Server)\n  -   CentOS Linux 6 (CIS Benchmark for CentOS Linux 6 Benchmark v2.0.2, Level 2 Server)\n  -   CentOS Linux 6 (CIS Benchmark for CentOS Linux 6 Benchmark v2.0.2, Level 1 Workstation)\n  -   CentOS Linux 6 (CIS Benchmark for CentOS Linux 6 Benchmark v2.0.2, Level 2 Workstation)\n  -   Red Hat Enterprise Linux 6 (CIS Benchmark for Red Hat Enterprise Linux 6 Benchmark v2.0.2, Level 1 Server)\n  -   Red Hat Enterprise Linux 6 (CIS Benchmark for Red Hat Enterprise Linux 6 Benchmark v2.0.2, Level 2 Server)\n  -   Red Hat Enterprise Linux 6 (CIS Benchmark for Red Hat Enterprise Linux 6 Benchmark v2.0.2, Level 1 Workstation)\n  -   Red Hat Enterprise Linux 6 (CIS Benchmark for Red Hat Enterprise Linux 6 Benchmark v2.0.2 Level 2 Workstation)\n  -   Ubuntu Linux 14.04 LTS (CIS Benchmark for Ubuntu Linux 14.04 LTS Benchmark v2.0.0, Level 1 Server)\n  -   Ubuntu Linux 14.04 LTS (CIS Benchmark for Ubuntu Linux 14.04 LTS Benchmark v2.0.0, Level 2 Server)\n  -   Ubuntu Linux 14.04 LTS (CIS Benchmark for Ubuntu Linux 14.04 LTS Benchmark v2.0.0, Level 1 Workstation)\n  -   Ubuntu Linux 14.04 LTS (CIS Benchmark for Ubuntu Linux 14.04 LTS Benchmark v2.0.0, Level 2 Workstation)\n\nIf a particular CIS benchmark appears in a finding produced by an Amazon Inspector assessment run, you can download a detailed PDF description of the benchmark from https://benchmarks.cisecurity.org/ (free registration required). The benchmark document provides detailed information about this CIS benchmark, its severity, and how to mitigate it. \n    ",
+    "name": "CIS Operating System Security Configuration Benchmarks",
+    "provider": "Amazon Web Services, Inc.",
+    "version": "1.0",
+    "nameWithVersion": "CIS Operating System Security Configuration Benchmarks-1.0"
+  },
+  "assessmentRun": {
+    "arn": "arn:aws:inspector:us-west-2:703781204849:target/0-uWOXnxFk/template/0-hKt4me4K/run/0-ZsEXQun4",
+    "assessmentTemplateArn": "arn:aws:inspector:us-west-2:703781204849:target/0-uWOXnxFk/template/0-hKt4me4K",
+    "completedAt": 1668755320.559,
+    "createdAt": 1668751626.531,
+    "dataCollected": true,
+    "durationInSeconds": 3600,
+    "findingCounts": {
+      "High": 90,
+      "Informational": 10,
+      "Low": 0,
+      "Medium": 1
+    },
+    "name": "Run - MySecondAssesment - 2022-11-18T06:07:06.104Z",
+    "notifications": [
+      {
+        "date": 1668751626.605,
+        "error": false,
+        "event": "ASSESSMENT_RUN_STATE_CHANGED",
+        "snsPublishStatusCode": "SUCCESS",
+        "snsTopicArn": "arn:aws:sns:us-west-2:703781204849:inspector"
+      },
+      {
+        "date": 1668751626.758,
+        "error": false,
+        "event": "ASSESSMENT_RUN_STATE_CHANGED",
+        "snsPublishStatusCode": "SUCCESS",
+        "snsTopicArn": "arn:aws:sns:us-west-2:703781204849:inspector"
+      },
+      {
+        "date": 1668751626.797,
+        "error": false,
+        "event": "ASSESSMENT_RUN_STARTED",
+        "snsPublishStatusCode": "SUCCESS",
+        "snsTopicArn": "arn:aws:sns:us-west-2:703781204849:inspector"
+      },
+      {
+        "date": 1668751627.384,
+        "error": false,
+        "event": "ASSESSMENT_RUN_STATE_CHANGED",
+        "snsPublishStatusCode": "SUCCESS",
+        "snsTopicArn": "arn:aws:sns:us-west-2:703781204849:inspector"
+      },
+      {
+        "date": 1668755288.348,
+        "error": false,
+        "event": "ASSESSMENT_RUN_STATE_CHANGED",
+        "snsPublishStatusCode": "SUCCESS",
+        "snsTopicArn": "arn:aws:sns:us-west-2:703781204849:inspector"
+      },
+      {
+        "date": 1668755288.542,
+        "error": false,
+        "event": "ASSESSMENT_RUN_STATE_CHANGED",
+        "snsPublishStatusCode": "SUCCESS",
+        "snsTopicArn": "arn:aws:sns:us-west-2:703781204849:inspector"
+      },
+      {
+        "date": 1668755289.047,
+        "error": false,
+        "event": "ASSESSMENT_RUN_STATE_CHANGED",
+        "snsPublishStatusCode": "SUCCESS",
+        "snsTopicArn": "arn:aws:sns:us-west-2:703781204849:inspector"
+      },
+      {
+        "date": 1668755320.672,
+        "error": false,
+        "event": "ASSESSMENT_RUN_STATE_CHANGED",
+        "snsPublishStatusCode": "SUCCESS",
+        "snsTopicArn": "arn:aws:sns:us-west-2:703781204849:inspector"
+      },
+      {
+        "date": 1668755320.693,
+        "error": false,
+        "event": "ASSESSMENT_RUN_COMPLETED",
+        "snsPublishStatusCode": "SUCCESS",
+        "snsTopicArn": "arn:aws:sns:us-west-2:703781204849:inspector"
+      }
+    ],
+    "rulesPackageArns": [
+      "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p",
+      "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-rD1z6dpl",
+      "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",
+      "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ"
+    ],
+    "startedAt": 1668751627.339,
+    "state": "COMPLETED",
+    "stateChangedAt": 1668755320.559,
+    "stateChanges": [
+      {
+        "state": "CREATED",
+        "stateChangedAt": 1668751626.531
+      },
+      {
+        "state": "START_DATA_COLLECTION_PENDING",
+        "stateChangedAt": 1668751626.665
+      },
+      {
+        "state": "COLLECTING_DATA",
+        "stateChangedAt": 1668751627.339
+      },
+      {
+        "state": "DATA_COLLECTED",
+        "stateChangedAt": 1668755288.29
+      },
+      {
+        "state": "START_EVALUATING_RULES_PENDING",
+        "stateChangedAt": 1668755288.501
+      },
+      {
+        "state": "EVALUATING_RULES",
+        "stateChangedAt": 1668755289
+      },
+      {
+        "state": "COMPLETED",
+        "stateChangedAt": 1668755320.559
+      }
+    ],
+    "userAttributesForFindings": [],
+    "attributesAsHash": {},
+    "findingCount": {
+      "result": 101
+    },
+    "duration": {
+      "value": 3600,
+      "label": "1 Hour (Recommended)"
+    }
+  },
+  "assessmentTemplate": {
+    "arn": "arn:aws:inspector:us-west-2:703781204849:target/0-uWOXnxFk/template/0-hKt4me4K",
+    "assessmentRunCount": 1,
+    "assessmentTargetArn": "arn:aws:inspector:us-west-2:703781204849:target/0-uWOXnxFk",
+    "createdAt": 1668748427.236,
+    "durationInSeconds": 3600,
+    "lastAssessmentRunArn": "arn:aws:inspector:us-west-2:703781204849:target/0-uWOXnxFk/template/0-hKt4me4K/run/0-ZsEXQun4",
+    "name": "MySecondAssesment",
+    "rulesPackageArns": [
+      "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p",
+      "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-rD1z6dpl",
+      "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",
+      "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ"
+    ],
+    "userAttributesForFindings": [],
+    "attributesAsHash": {},
+    "duration": {
+      "value": 3600,
+      "label": "1 Hour (Recommended)"
+    },
+    "lastAssessmentRunObject": {
+      "arn": "arn:aws:inspector:us-west-2:703781204849:target/0-uWOXnxFk/template/0-hKt4me4K/run/0-ZsEXQun4",
+      "assessmentTemplateArn": "arn:aws:inspector:us-west-2:703781204849:target/0-uWOXnxFk/template/0-hKt4me4K",
+      "completedAt": 1668755320.559,
+      "createdAt": 1668751626.531,
+      "dataCollected": true,
+      "durationInSeconds": 3600,
+      "findingCounts": {
+        "High": 90,
+        "Informational": 10,
+        "Low": 0,
+        "Medium": 1
+      },
+      "name": "Run - MySecondAssesment - 2022-11-18T06:07:06.104Z",
+      "notifications": [
+        {
+          "date": 1668751626.605,
+          "error": false,
+          "event": "ASSESSMENT_RUN_STATE_CHANGED",
+          "snsPublishStatusCode": "SUCCESS",
+          "snsTopicArn": "arn:aws:sns:us-west-2:703781204849:inspector"
+        },
+        {
+          "date": 1668751626.758,
+          "error": false,
+          "event": "ASSESSMENT_RUN_STATE_CHANGED",
+          "snsPublishStatusCode": "SUCCESS",
+          "snsTopicArn": "arn:aws:sns:us-west-2:703781204849:inspector"
+        },
+        {
+          "date": 1668751626.797,
+          "error": false,
+          "event": "ASSESSMENT_RUN_STARTED",
+          "snsPublishStatusCode": "SUCCESS",
+          "snsTopicArn": "arn:aws:sns:us-west-2:703781204849:inspector"
+        },
+        {
+          "date": 1668751627.384,
+          "error": false,
+          "event": "ASSESSMENT_RUN_STATE_CHANGED",
+          "snsPublishStatusCode": "SUCCESS",
+          "snsTopicArn": "arn:aws:sns:us-west-2:703781204849:inspector"
+        },
+        {
+          "date": 1668755288.348,
+          "error": false,
+          "event": "ASSESSMENT_RUN_STATE_CHANGED",
+          "snsPublishStatusCode": "SUCCESS",
+          "snsTopicArn": "arn:aws:sns:us-west-2:703781204849:inspector"
+        },
+        {
+          "date": 1668755288.542,
+          "error": false,
+          "event": "ASSESSMENT_RUN_STATE_CHANGED",
+          "snsPublishStatusCode": "SUCCESS",
+          "snsTopicArn": "arn:aws:sns:us-west-2:703781204849:inspector"
+        },
+        {
+          "date": 1668755289.047,
+          "error": false,
+          "event": "ASSESSMENT_RUN_STATE_CHANGED",
+          "snsPublishStatusCode": "SUCCESS",
+          "snsTopicArn": "arn:aws:sns:us-west-2:703781204849:inspector"
+        },
+        {
+          "date": 1668755320.672,
+          "error": false,
+          "event": "ASSESSMENT_RUN_STATE_CHANGED",
+          "snsPublishStatusCode": "SUCCESS",
+          "snsTopicArn": "arn:aws:sns:us-west-2:703781204849:inspector"
+        },
+        {
+          "date": 1668755320.693,
+          "error": false,
+          "event": "ASSESSMENT_RUN_COMPLETED",
+          "snsPublishStatusCode": "SUCCESS",
+          "snsTopicArn": "arn:aws:sns:us-west-2:703781204849:inspector"
+        }
+      ],
+      "rulesPackageArns": [
+        "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p",
+        "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-rD1z6dpl",
+        "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",
+        "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ"
+      ],
+      "startedAt": 1668751627.339,
+      "state": "COMPLETED",
+      "stateChangedAt": 1668755320.559,
+      "stateChanges": [
+        {
+          "state": "CREATED",
+          "stateChangedAt": 1668751626.531
+        },
+        {
+          "state": "START_DATA_COLLECTION_PENDING",
+          "stateChangedAt": 1668751626.665
+        },
+        {
+          "state": "COLLECTING_DATA",
+          "stateChangedAt": 1668751627.339
+        },
+        {
+          "state": "DATA_COLLECTED",
+          "stateChangedAt": 1668755288.29
+        },
+        {
+          "state": "START_EVALUATING_RULES_PENDING",
+          "stateChangedAt": 1668755288.501
+        },
+        {
+          "state": "EVALUATING_RULES",
+          "stateChangedAt": 1668755289
+        },
+        {
+          "state": "COMPLETED",
+          "stateChangedAt": 1668755320.559
+        }
+      ],
+      "userAttributesForFindings": [],
+      "attributesAsHash": {},
+      "findingCount": {
+        "result": 101
+      },
+      "duration": {
+        "value": 3600,
+        "label": "1 Hour (Recommended)"
+      }
+    }
+  },
+  "assessmentTarget": {
+    "arn": "arn:aws:inspector:us-west-2:703781204849:target/0-uWOXnxFk",
+    "createdAt": 1668747595.917,
+    "name": "MyAssesment",
+    "resourceGroupArn": "arn:aws:inspector:us-west-2:703781204849:resourcegroup/0-KTLJ2u7t",
+    "updatedAt": 1668747595.917,
+    "resourceGroup": {
+      "arn": "arn:aws:inspector:us-west-2:703781204849:resourcegroup/0-KTLJ2u7t",
+      "createdAt": 1668747595.684,
+      "tags": [
+        {
+          "key": "Name",
+          "value": "inspector"
+        }
+      ],
+      "tagsAsHash": {
+        "Name": [
+          "inspector"
+        ]
+      },
+      "tagsAsString": "Name:inspector"
+    },
+    "assessmentTemplatesCount": 2
+  }
+}

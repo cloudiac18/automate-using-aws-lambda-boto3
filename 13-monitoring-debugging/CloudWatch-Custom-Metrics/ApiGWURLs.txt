@@ -1,0 +1,3 @@
+GET https://1ny7nujuh2.execute-api.us-west-2.amazonaws.com/Prod/cart/add
+GET https://1ny7nujuh2.execute-api.us-west-2.amazonaws.com/Prod/cart/purchase
+GET https://1ny7nujuh2.execute-api.us-west-2.amazonaws.com/Prod/products/123456
